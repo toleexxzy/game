@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everlyn Jumping Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>Everlyn's Adventure</h1>
+            <div class="difficulty-selector" id="difficultySelector">
+                <h3>Select Difficulty:</h3>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                    <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                    <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                </div>
+            </div>
+            <div class="score-container">
+                <span>Score: <span id="score">0</span></span>
+                <span>High Score: <span id="high-score">0</span></span>
+                <span>Difficulty: <span id="current-difficulty">Easy</span></span>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        
+        <div class="controls">
+            <div class="instructions">
+                <h3>How to Play:</h3>
+                <p>🎮 Hold SPACEBAR or ARROW UP to float</p>
+                <p>🏃 Avoid obstacles and collect Everlyn Coins</p>
+                <p>🎯 Try to get the highest score!</p>
+                <p>⚡ Choose your difficulty: Easy, Medium, or Hard</p>
+            </div>
+            <div class="buttons">
+                <button id="startBtn">Start Game</button>
+                <button id="restartBtn" style="display: none;">Restart</button>
+                <button id="pauseBtn" style="display: none;">Pause</button>
+            </div>
+        </div>
+        
+        <div class="game-over" id="gameOver" style="display: none;">
+            <h2>Game Over!</h2>
+            <p>Your Score: <span id="finalScore">0</span></p>
+            <p id="newHighScore" style="display: none;">🎉 New High Score! 🎉</p>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
