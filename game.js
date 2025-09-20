@@ -9,7 +9,7 @@ class Game {
         this.gameState = 'menu'; // menu, playing, paused, gameOver
         this.score = 0;
         this.difficulty = 'easy';
-        this.highScore = localStorage.getItem('everlynHighScore') || 0;
+        this.highScore = localStorage.getItem('stellaHighScore') || 0;
         this.gameSpeed = 2;
         
         // Difficulty settings
@@ -43,7 +43,7 @@ class Game {
             }
         };
         
-        // Player (Everlyn logo)
+        // Player (Stella logo)
         this.player = {
             x: 100,
             y: this.height - 120,
@@ -84,9 +84,9 @@ class Game {
         this.coinTimer = 0;
         this.cloudTimer = 0;
         
-        // Load Everlyn logo
+        // Load Stella logo
         this.playerImage = new Image();
-        this.playerImage.src = 'everlyn logo.jpg';
+        this.playerImage.src = 'stella logo.jpg';
         this.imageLoaded = false;
         
         this.playerImage.onload = () => {
@@ -94,7 +94,7 @@ class Game {
         };
         
         this.playerImage.onerror = () => {
-            console.log('Could not load Everlyn logo, using fallback graphics');
+            console.log('Could not load Stella logo, using fallback graphics');
             this.imageLoaded = false;
         };
         
@@ -449,7 +449,7 @@ class Game {
         document.getElementById('difficultySelector').style.display = 'block';
         
         // Update high score with difficulty-specific key
-        const highScoreKey = `everlynHighScore_${this.difficulty}`;
+        const highScoreKey = `stellaHighScore_${this.difficulty}`;
         const currentHighScore = localStorage.getItem(highScoreKey) || 0;
         
         if (this.score > currentHighScore) {
@@ -531,7 +531,7 @@ class Game {
         }
         
         if (this.imageLoaded) {
-            // Draw the Everlyn logo
+            // Draw the Stella logo
             this.ctx.drawImage(this.playerImage, 0, 0, this.player.width, this.player.height);
         } else {
             // Fallback: Draw a stylized character
@@ -587,24 +587,24 @@ class Game {
             this.ctx.arc(-coin.width / 6, -coin.height / 6, coin.width / 6, 0, Math.PI * 2);
             this.ctx.fill();
             
-            // Draw "E" for Everlyn in the center
+            // Draw "S" for Stella in the center
             this.ctx.fillStyle = '#8B4513';
             this.ctx.font = 'bold 12px Arial';
             this.ctx.textAlign = 'center';
             this.ctx.textBaseline = 'middle';
-            this.ctx.fillText('E', 0, 0);
+            this.ctx.fillText('S', 0, 0);
             
             this.ctx.restore();
             
-            // Draw "Everlyn Coin" text above the coin
+            // Draw "Stella Coin" text above the coin
             this.ctx.save();
             this.ctx.fillStyle = '#FFD700';
             this.ctx.strokeStyle = '#8B4513';
             this.ctx.lineWidth = 1;
             this.ctx.font = 'bold 10px Arial';
             this.ctx.textAlign = 'center';
-            this.ctx.strokeText('Everlyn Coin', coin.x + coin.width / 2, coin.y - 8);
-            this.ctx.fillText('Everlyn Coin', coin.x + coin.width / 2, coin.y - 8);
+            this.ctx.strokeText('Stella Coin', coin.x + coin.width / 2, coin.y - 8);
+            this.ctx.fillText('Stella Coin', coin.x + coin.width / 2, coin.y - 8);
             this.ctx.restore();
         });
     }
@@ -637,7 +637,7 @@ class Game {
     }
     
     updateHighScoreDisplay() {
-        const highScoreKey = `everlynHighScore_${this.difficulty}`;
+        const highScoreKey = `stellaHighScore_${this.difficulty}`;
         const currentHighScore = localStorage.getItem(highScoreKey) || 0;
         document.getElementById('high-score').textContent = currentHighScore;
     }
